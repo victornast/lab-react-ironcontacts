@@ -26,10 +26,24 @@ function App() {
       this.setState({ selectedContacts: copyContacts });
     };
 
+    sortByName = () => {
+      const copyContacts = [...this.state.selectedContacts];
+      copyContacts.sort((a, b) => (a.name > b.name ? 1 : -1));
+      this.setState({ selectedContacts: copyContacts });
+    };
+
+    sortByPopularity = () => {
+      const copyContacts = [...this.state.selectedContacts];
+      copyContacts.sort((a, b) => b.popularity - a.popularity);
+      this.setState({ selectedContacts: copyContacts });
+    };
+
     render() {
       return (
         <section>
           <button onClick={this.addRandomContact}>Add Random Contact</button>
+          <button onClick={this.sortByName}>Sort by Name</button>
+          <button onClick={this.sortByPopularity}>Sort by Popularity</button>
           <table>
             <thead>
               <tr>
