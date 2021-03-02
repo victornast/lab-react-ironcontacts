@@ -38,6 +38,12 @@ function App() {
       this.setState({ selectedContacts: copyContacts });
     };
 
+    deleteContact(index) {
+      const copyContacts = [...this.state.selectedContacts];
+      copyContacts.splice(index, 1);
+      this.setState({ selectedContacts: copyContacts });
+    }
+
     render() {
       return (
         <section>
@@ -50,10 +56,14 @@ function App() {
                 <th>Picture</th>
                 <th>Name</th>
                 <th>Popularity</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
               {this.state.selectedContacts.map((contact) => {
+                const contactIndex = this.state.selectedContacts.indexOf(
+                  contact
+                );
                 return (
                   <tr style={{ textAlign: 'left' }} key={contact.id}>
                     <td>
@@ -65,6 +75,11 @@ function App() {
                     </td>
                     <td>{contact.name}</td>
                     <td>{contact.popularity.toFixed(2)}</td>
+                    <td>
+                      <button onClick={() => this.deleteContact(contactIndex)}>
+                        Delete
+                      </button>
+                    </td>
                   </tr>
                 );
               })}
