@@ -11,10 +11,25 @@ function App() {
       };
     }
 
+    selectRandomContact = () => {
+      let randomIndex = Math.floor(Math.random() * (contacts.length - 5));
+      return contacts[randomIndex];
+    };
+
+    addRandomContact = () => {
+      const copyContacts = [...this.state.selectedContacts];
+      let randomContact = this.selectRandomContact();
+
+      if (!this.state.selectedContacts.includes(randomContact))
+        copyContacts.push(randomContact);
+
+      this.setState({ selectedContacts: copyContacts });
+    };
+
     render() {
       return (
         <section>
-          <button>Add Random Contact</button>
+          <button onClick={this.addRandomContact}>Add Random Contact</button>
           <table>
             <thead>
               <tr>
