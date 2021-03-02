@@ -12,17 +12,17 @@ function App() {
     }
 
     selectRandomContact = () => {
-      let randomIndex = Math.floor(Math.random() * (contacts.length - 5));
-      return contacts[randomIndex];
+      const newContacts = contacts.filter(
+        (contact) => !this.state.selectedContacts.includes(contact)
+      );
+      let randomIndex = Math.floor(Math.random() * newContacts.length);
+      return newContacts[randomIndex];
     };
 
     addRandomContact = () => {
       const copyContacts = [...this.state.selectedContacts];
       let randomContact = this.selectRandomContact();
-
-      if (!this.state.selectedContacts.includes(randomContact))
-        copyContacts.push(randomContact);
-
+      copyContacts.push(randomContact);
       this.setState({ selectedContacts: copyContacts });
     };
 
