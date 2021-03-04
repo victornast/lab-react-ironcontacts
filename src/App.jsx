@@ -22,8 +22,10 @@ function App() {
     addRandomContact = () => {
       const copyContacts = [...this.state.selectedContacts];
       let randomContact = this.selectRandomContact();
-      copyContacts.push(randomContact);
-      this.setState({ selectedContacts: copyContacts });
+      if (randomContact) {
+        copyContacts.push(randomContact);
+        this.setState({ selectedContacts: copyContacts });
+      }
     };
 
     sortByName = () => {
