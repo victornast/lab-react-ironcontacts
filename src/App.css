@@ -1,3 +1,118 @@
+* {
+  box-sizing: border-box;
+}
+
 .App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Tenor Sans', sans-serif;
+  height: 100vh;
+}
+
+.App-title {
+  font-size: 3rem;
+}
+
+.bg {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  top: -400px;
+  bottom: 0;
+  left: -500px;
+  right: -500px;
+  margin: auto;
+  z-index: -1;
+}
+
+.bg__animated-svg {
+  margin: auto;
+  display: block;
+  position: relative;
+  shape-rendering: auto;
+  width: 2330px;
+}
+
+.iron-contacts {
+  display: flex;
+  justify-content: space-evenly;
+  overflow: hidden;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
   margin: 0 2em;
+  position: sticky;
+  top: 0;
+}
+
+.btn {
+  max-width: 10em;
+  margin: 0.5em;
+  padding: 0.5em 1em;
+  border: 0;
+  border-radius: 2em;
+  background-color: black;
+  color: white;
+  font-family: 'Tenor Sans';
+  font-size: 0.75rem;
+}
+
+.table {
+  overflow: auto;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th {
+  position: sticky;
+  top: 0;
+  background: #f9c515;
+}
+
+th:not(:last-child) {
+  padding: 0 1em 1em 0;
+  text-align: left;
+}
+
+th:last-child {
+  padding-bottom: 1em;
+}
+
+h4 {
+  margin: 0;
+  font-weight: 100;
+  padding: 0;
+}
+
+h3 {
+  margin: 0;
+  padding: 0;
+  margin-right: 0.4em;
+}
+
+.celeb-image {
+  border: 10px solid white;
+  width: 5em;
+  margin-right: 0.5em;
+}
+
+.celeb-name {
+  font-size: 2rem;
+  vertical-align: top;
+}
+
+.celeb-pop {
+  font-size: 2rem;
+  vertical-align: top;
+}
+
+.celeb-action {
+  vertical-align: top;
 }
